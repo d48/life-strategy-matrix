@@ -23,29 +23,27 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
           Life Areas Assessment
         </h2>
-        <p className="text-gray-600">
-          <ol className="list-decimal list-outside mt-5">
-            <li className='mb-5'>
-              <strong>Rate</strong> each <strong>life area</strong> based on its{' '}
-              <strong>importance</strong> to you and your current{' '}
-              <strong>satisfaction</strong> level. Also indicate{' '}
-              <strong>how many hours per week</strong> you typically spend on
-              each area.
-            </li>
-            <li className='mb-5'>
-              After you have rated each life area, <strong>review</strong> the
-              chart to see which areas are <strong>most important</strong> to
-              you and <strong>how</strong> you're spending your time.
-            </li>
 
-            <li>
-              <strong>Evaluate</strong> if any <strong>changes</strong> are
-              needed to spend time in areas that{' '}
-              <strong>align with your values and purpose</strong>.
-            </li>
-          </ol>
-        </p>
-        <p className="text-gray-600 mt-5"></p>
+        <ol className="list-decimal list-outside mt-5 text-gray-600">
+          <li className="mb-5">
+            <strong>Rate</strong> each <strong>life area</strong> based on its{' '}
+            <strong>importance</strong> to you and your current{' '}
+            <strong>satisfaction</strong> level. Also indicate{' '}
+            <strong>how many hours per week</strong> you typically spend on each
+            area.
+          </li>
+          <li className="mb-5">
+            After you have rated each life area, <strong>review</strong> the
+            chart to see which areas are <strong>most important</strong> to you
+            and <strong>how</strong> you're spending your time.
+          </li>
+
+          <li>
+            <strong>Evaluate</strong> if any <strong>changes</strong> are needed
+            to spend time in areas that{' '}
+            <strong>align with your values and purpose</strong>.
+          </li>
+        </ol>
       </div>
 
       {data.map((item) => (

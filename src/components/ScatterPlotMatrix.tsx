@@ -10,9 +10,10 @@ import {
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { Scatter } from 'react-chartjs-2';
 import { SurveyData } from '../types';
-import { Share2, Maximize2, Minimize2 } from 'lucide-react';
+import { Share2, Maximize2, Minimize2, BarChart2, Table } from 'lucide-react';
 import { nanoid } from 'nanoid';
 import { supabase } from '../lib/supabase';
+import { TableView } from './TableView';
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend, annotationPlugin);
 
@@ -25,6 +26,7 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [shareError, setShareError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'chart' | 'table'>('chart');
 
   const handleShare = async () => {
     try {
@@ -57,6 +59,10 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized);
+  };
+
+  const toggleViewMode = () => {
+    setViewMode(viewMode === 'chart' ? 'table' : 'chart');
   };
 
   const options = {
@@ -166,7 +172,6 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
     ? 'fixed inset-0 z-50 bg-white p-4 overflow-auto'
     : 'bg-white p-4 rounded-lg shadow-md sticky top-4';
 
-  // Adjust height based on viewport
   const chartHeight = isMaximized 
     ? 'h-[80vh]' 
     : 'h-[250px] lg:h-[300px]';
@@ -175,21 +180,40 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
     <div className={chartContainerClass}>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl lg:text-2xl font-bold text-gray-800">Life Strategy Analysis</h2>
-        <button
-          onClick={toggleMaximize}
-          className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
-          aria-label={isMaximized ? 'Minimize chart' : 'Maximize chart'}
-        >
-          {isMaximized ? (
-            <Minimize2 className="w-5 h-5" />
-          ) : (
-            <Maximize2 className="w-5 h-5" />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleViewMode}
+            className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+            aria-label={viewMode === 'chart' ? 'Switch to table view' : 'Switch to chart view'}
+          >
+            {viewMode === 'chart' ? (
+              <Table className="w-5 h-5" />
+            ) : (
+              <BarChart2 className="w-5 h-5" />
+            )}
+          </button>
+          <button
+            onClick={toggleMaximize}
+            className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+            aria-label={isMaximized ? 'Minimize view' : 'Maximize view'}
+          >
+            {isMaximized ? (
+              <Minimize2 className="w-5 h-5" />
+            ) : (
+              <Maximize2 className="w-5 h-5" />
+            )}
+          </button>
+        </div>
       </div>
-      <div className={`${chartHeight} w-full`}>
-        <Scatter options={options} data={chartData} />
-      </div>
+      
+      {viewMode === 'chart' ? (
+        <div className={`${chartHeight} w-full`}>
+          <Scatter options={options} data={chartData} />
+        </div>
+      ) : (
+        <TableView data={data} />
+      )}
+
       <div className="mt-3 flex flex-col items-center gap-2">
         <button
           onClick={handleShare}
