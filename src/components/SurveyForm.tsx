@@ -40,8 +40,8 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({
 
           <li>
             <strong>Evaluate</strong> if any <strong>changes</strong> are needed
-            to spend time in areas that{' '}
-            <strong>align with your values and purpose</strong>.
+            for time spent in areas that{' '}
+            <strong>align with your values</strong>.
           </li>
         </ol>
       </div>
