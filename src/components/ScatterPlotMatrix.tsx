@@ -77,7 +77,7 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
           text: 'Satisfaction',
           font: {
             size: 14,
-            weight: 'bold'
+            weight: 700
           }
         },
         grid: {
@@ -86,10 +86,10 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
         },
         ticks: {
           display: true,
-          callback: function(value: number) {
-            if (value === 0) return 'Low';
-            if (value === 10) return 'High';
-            return value;
+          callback: function(tickValue: number | string) {
+            if (tickValue === 0) return 'Low';
+            if (tickValue === 10) return 'High';
+            return tickValue;
           }
         }
       },
@@ -121,7 +121,7 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context: any) => {
+          label: (context: { dataIndex: number }) => {
             const point = data[context.dataIndex];
             return `${point.question} (Time Spent: ${point.weight} hours)`;
           },
@@ -130,7 +130,7 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
       annotation: {
         annotations: {
           verticalLine: {
-            type: 'line',
+            type: 'line' as const,
             xMin: 5,
             xMax: 5,
             borderColor: 'rgba(0, 0, 0, 0.2)',
@@ -138,7 +138,7 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
             borderDash: [5, 5],
           },
           horizontalLine: {
-            type: 'line',
+            type: 'line' as const,
             yMin: 5,
             yMax: 5,
             borderColor: 'rgba(0, 0, 0, 0.2)',

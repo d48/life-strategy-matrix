@@ -136,7 +136,7 @@ const initialData: SurveyData[] = [
   }
 ];
 
-function App(): React.FC {
+function App() {
   const [surveyData, setSurveyData] = useState<SurveyData[]>(initialData);
 
   useEffect(() => {
