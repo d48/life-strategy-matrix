@@ -8,128 +8,128 @@ import { supabase } from './lib/supabase';
 const initialData: SurveyData[] = [
   {
     id: '1',
-    question: 'Career & Work',
-    description: 'Professional growth, job satisfaction, workplace relationships, and career development goals.',
+    question: 'Significant Other',
+    description: 'Date nights, shared hobbies, daily communication, planning future together',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '2',
-    question: 'Finance & Wealth',
-    description: 'Financial security, savings, investments, budgeting, and long-term financial planning.',
+    question: 'Family',
+    description: 'Family dinners, holiday celebrations, video calls with relatives, helping with homework',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '3',
-    question: 'Health & Fitness',
-    description: 'Physical well-being, exercise, nutrition, sleep quality, and preventive healthcare.',
+    question: 'Friendship',
+    description: 'Coffee meetups, group activities, regular check-ins, shared celebrations',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '4',
-    question: 'Mental & Emotional Well-being',
-    description: 'Psychological health, stress management, emotional intelligence, and mental resilience.',
+    question: 'Physical Health / Sports',
+    description: 'Gym workouts, team sports, yoga, running, hiking',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '5',
-    question: 'Relationships & Family',
-    description: 'Quality of personal relationships, family bonds, and social connections.',
+    question: 'Mental Health / Mindfulness',
+    description: 'Meditation, therapy sessions, journaling, stress management',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '6',
-    question: 'Personal Growth',
-    description: 'Self-improvement, learning new skills, and developing personal capabilities.',
+    question: 'Spirituality / Faith',
+    description: 'Religious services, prayer, spiritual reading, meditation practice',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '7',
-    question: 'Spirituality & Faith',
-    description: 'Religious or spiritual practices, beliefs, and connection to higher purpose.',
+    question: 'Community / Citizenship',
+    description: 'Volunteering, neighborhood events, local government participation',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '8',
-    question: 'Recreation & Hobbies',
-    description: 'Leisure activities, creative pursuits, and enjoyable pastimes.',
+    question: 'Societal Engagement',
+    description: 'Activism, charitable giving, environmental initiatives',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '9',
-    question: 'Home & Environment',
-    description: 'Living space, home maintenance, and creating a comfortable environment.',
+    question: 'Job / Career',
+    description: 'Work tasks, professional development, networking, skill building',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '10',
-    question: 'Community & Social Impact',
-    description: 'Contributing to society, volunteering, and making a positive difference.',
+    question: 'Education / Learning',
+    description: 'Online courses, reading, workshops, language learning',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '11',
-    question: 'Learning & Education',
-    description: 'Formal education, self-study, and intellectual development.',
+    question: 'Financing',
+    description: 'Budgeting, investing, financial planning, tracking expenses',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '12',
-    question: 'Travel & Adventure',
-    description: 'Exploring new places, experiencing different cultures, and creating memories.',
+    question: 'Hobbies / Interests',
+    description: 'Photography, gardening, cooking, musical instruments',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '13',
-    question: 'Time Management',
-    description: 'Organization, productivity, and balance between different life areas.',
+    question: 'Online Entertainment',
+    description: 'Streaming services, social media, video games, podcasts',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '14',
-    question: 'Creative Expression',
-    description: 'Artistic pursuits, self-expression, and creative outlets.',
+    question: 'Offline Entertainment',
+    description: 'Reading books, attending concerts, theater, museums',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '15',
-    question: 'Social Life & Friends',
-    description: 'Friendships, social activities, and building meaningful connections.',
+    question: 'Physiological Needs',
+    description: 'Sleep, nutrition, hydration, rest',
     importance: 5,
     satisfaction: 5,
     weight: 1
   },
   {
     id: '16',
-    question: 'Life Vision & Purpose',
-    description: 'Long-term goals, personal mission, and sense of purpose.',
+    question: 'Activities of Daily Living',
+    description: 'Cleaning, grocery shopping, personal hygiene, commuting',
     importance: 5,
     satisfaction: 5,
     weight: 1
