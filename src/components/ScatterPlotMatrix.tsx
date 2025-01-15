@@ -157,13 +157,13 @@ export const ScatterPlotMatrix: React.FC<ScatterPlotMatrixProps> = ({ data }) =>
         data: data.map((point) => ({
           x: point.satisfaction,
           y: point.importance,
-          r: (point.weight / 2) * 2,
+          r: Math.max(4, (point.weight / 2) * 2)
         })),
         backgroundColor: 'rgba(99, 102, 241, 0.6)',
         borderColor: 'rgba(99, 102, 241, 1)',
         borderWidth: 1,
-        pointRadius: data.map(point => (point.weight / 2) * 2),
-        pointHoverRadius: data.map(point => (point.weight / 2) * 2.5),
+        pointRadius: data.map(point => Math.max(4, (point.weight / 2) * 2)),
+        pointHoverRadius: data.map(point => Math.max(5, (point.weight / 2) * 2.5))
       },
     ],
   };
